@@ -1,8 +1,11 @@
-name: Build LaTeX PDF
+name: Build & Commit PDF
 
 on:
   push:
     branches: [ "main" ]
+
+permissions:
+  contents: write   # 👈 REQUIRED
 
 jobs:
   build:
@@ -11,15 +14,23 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # 👈 IMPORTANT
 
-      - name: Install TeX Live
+      - name: Compile LaTeX (XeLaTeX)
         uses: xu-cheng/latex-action@v3
         with:
           latexmk_use_xelatex: true
           root_file: menu.tex
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: menu-pdf
-          path: menu.pdf
+      - name: Commit PDF
+        run: |
+          if git status --porcelain | grep menu.pdf; then
+            git config user.name "github-actions"
+            git config user.email "github-actions@github.com"
+            git add menu.pdf
+            git commit -m "Auto-build PDF"
+            git push
+          else
+            echo "No PDF changes to commit"
+          fi
