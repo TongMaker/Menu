@@ -1,5 +1,8 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage[utf8]{inputenc}
+
+% ------------------------------
+% PAQUETES
+% ------------------------------
 \usepackage[spanish]{babel}
 \usepackage{geometry}
 \usepackage{graphicx}
@@ -7,33 +10,36 @@
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{xcolor}
-\usepackage{fontspec}
+\usepackage{fontspec}   % Para fuentes modernas
 \usepackage{titlesec}
 \usepackage{eurosym}
 \usepackage{tikz}
 \usepackage{setspace}
-\usepackage{fontspec}
-\usepackage{ctex}
+\usepackage{ctex}       % Soporte completo para chino
 
-% 【可选】设置字体（XeLaTeX/LuaLaTeX模式下）
-% \setmainfont{SimSun} % 设置宋体
 % ------------------------------
-% CONFIGURACIONES
+% FUENTES
 % ------------------------------
-% Fuentes modernas (Necesitas XeLaTeX o LuaLaTeX)
-\setmainfont{Arial} % O 'Helvetica' si está disponible
+\setmainfont{Arial}                     % Fuente principal para texto latino
+\setCJKmainfont{Noto Serif CJK SC}      % Fuente para caracteres chinos
 \newfontfamily\titlefont{Arial}{\bfseries\Large}
 
-% Colores
-\definecolor{rojoChino}{RGB}{279, 136, 130}
+% ------------------------------
+% COLORES
+% ------------------------------
+\definecolor{rojoChino}{RGB}{50, 50, 100}
 \definecolor{dorado}{RGB}{212, 175, 55}
 \definecolor{grisClaro}{RGB}{245, 245, 240}
 \definecolor{grisTexto}{RGB}{60, 60, 60}
 
-% Márgenes
+% ------------------------------
+% MÁRGENES
+% ------------------------------
 \geometry{margin=1.5cm}
 
-% Definición de comandos personalizados
+% ------------------------------
+% COMANDOS PERSONALIZADOS
+% ------------------------------
 \newcommand{\plato}[3]{%
     \textbf{#1} \hfill \textcolor{rojoChino}{\textbf{#3}} \par
     \textit{\small #2} \par
@@ -52,106 +58,78 @@
 % ------------------------------
 % INICIO DEL DOCUMENTO
 % ------------------------------
-
 \begin{document}
 
-% Para que no aparezca el número de página en la primera hoja
 \thispagestyle{empty}
 
 % ------------------------------
 % PORTADA / CABECERA
 % ------------------------------
-
-% Espacio en blanco arriba
 \vspace*{1cm}
-
-% Nombre del Restaurante
 \noindent{\Huge\textsc{\textbf{\textcolor{rojoChino}{Gastronomía de China-Xian}}}}\par
 \vspace{0.3cm}
 \noindent{\Huge\textit{\textcolor{dorado}{西安小吃}}}\par
 \vspace{1cm}
 
-% Línea decorativa
 \noindent\textcolor{grisClaro}{\rule{\linewidth}{3pt}}\par
 \vspace{1.5cm}
 
 % ------------------------------
 % CUERPO DEL MENÚ
 % ------------------------------
-
-% Ajuste de interlineado
 \setstretch{1.2}
 \pagecolor{grisClaro}
 \color{grisTexto}
 
 % --- ENTRANTES / APERITIVOS ---
-% --- ENTRANTES / APERITIVOS ---
 \separador{包饺馍 Bao y empanadillas}
 
-\plato{肉夹馍 Rougamo de Cerdo}{hamburguesa estilo Xian rellenos de cerdo cocido con especias.}
-{6,90 \euro}
+\plato{肉夹馍 Rougamo de Cerdo}{Hamburguesa estilo Xian rellena de cerdo cocido con especias.}{6,90 \euro}
 
-\plato{煎饺 Jiaozi Fritos/Vapor}{Raviolis de cerdo y verduras fritos para un dorado crujiente.}
-{8,90 \euro}
+\plato{煎饺 Jiaozi Fritos/Vapor}{Raviolis de cerdo y verduras fritos para un dorado crujiente.}{8,90 \euro}
 
-\plato{汤水饺 Jiaozi en Sopa}{Jiaozi de carne y verdura servidos en caldo caliente y aromático.}
-{9,90 \euro}
+\plato{汤水饺 Jiaozi en Sopa}{Jiaozi de carne y verdura servidos en caldo caliente y aromático.}{9,90 \euro}
 
-\plato{锅贴 Empanadillas Fritas}{Empanadillas fritas al estilo wok, crujientes por la base.}
-{8,90 \euro}
+\plato{锅贴 Empanadillas Fritas}{Empanadillas fritas al estilo wok, crujientes por la base.}{8,90 \euro}
+
 % --- SOPAS Y CALDOS ---
-\separador{面食 Tallarines}
+\separador{面类 Tallarines}
 
-\plato{西安油泼面 (Tallarines Xi'an)}{Fideos anchos caseros con polvo de chile, cebolleta y vinagre, cocinados al estilo Shaanxi.}
-{8,90 \euro}
+\plato{西安油泼面 (Tallarines Xi'an)}{Fideos anchos caseros con polvo de chile, cebolleta y vinagre, cocinados al estilo Shaanxi.}{8,90 \euro}
 
-\plato{炸酱面 (Tallarines Zhajiang)}{Fideos acompañados de una rica salsa de soja fermentada, carne de cerdo y verduras.}
-{9,90 \euro}
+\plato{炸酱面 (Tallarines Zhajiang)}{Fideos acompañados de una rica salsa de soja fermentada, carne de cerdo y verduras.}{9,90 \euro}
 
-\plato{二合一面 (Tallarines Mezcla 2 en 1)}{Tallarines 2 en 1 Xian + Zhajiang.}
-{9,90 \euro}
+\plato{二合一面 (Tallarines Mezcla 2 en 1)}{Tallarines 2 en 1 Xian + Zhajiang.}{9,90 \euro}
 
-\plato{牛肉面 (Tallarines con Ternera)}{Tallarines en caldo casero de ternera con trozos carne quisada.}
-{10,90 \euro}
+\plato{牛肉面 (Tallarines con Ternera)}{Tallarines en caldo casero de ternera con trozos de carne.}{10,90 \euro}
 
 % --- PLATOS FUERTES ---
 \separador{饭类 Arroz}
 
-\plato{三鲜炒饭 (Arroz Tres Delicias)}{Arroz basmati salteado con gambas, pollo, cerdo y verduras mixtas.}
-{8,90 \euro}
+\plato{三鲜炒饭 (Arroz Tres Delicias)}{Arroz basmati salteado con gambas, pollo, cerdo y verduras mixtas.}{8,90 \euro}
 
-\plato{牛肉盖饭 (Arroz con Ternera)}{Jugosas tiras de ternera salteadas con cebolla y pimientos, servidas sobre arroz blanco.}
-{10,90 \euro}
+\plato{牛肉盖饭 (Arroz con Ternera)}{Jugosas tiras de ternera salteadas con cebolla y pimientos, servidas sobre arroz blanco.}{10,90 \euro}
 
-\plato{宫保鸡丁饭 (Arroz Kung Pao)}{Pollo salteado con salsa picante, cacahuetes tostados.}
-{9,90 \euro}
-
+\plato{宫保鸡丁饭 (Arroz Kung Pao)}{Pollo salteado con salsa picante y cacahuetes tostados.}{9,90 \euro}
 
 % --- BEBIDAS ---
 \separador{Bebidas}
 
-\plato{Cerveza Mahou}{330ml}
-{2,80 \euro}
+\plato{Cerveza Mahou}{330ml}{2,80 \euro}
 
-\plato{Cerveza Mahou 5 estrella}{330ml}
-{3.50 \euro}
+\plato{Cerveza Mahou 5 estrella}{330ml}{3,50 \euro}
 
-\plato{Cocacola}{330ml.}
-{3,50 \euro}
+\plato{Cocacola}{330ml.}{3,50 \euro}
 
-\plato{Agua Mineral}{500ml}
-{2,50 \euro}
+\plato{Agua Mineral}{500ml}{2,50 \euro}
 
-\plato{Cafe}{Delta}
-{2,50 \euro}
+\plato{Cafe}{Delta}{2,50 \euro}
 
-\plato{Infusion}{Te verde}
-{2,50 \euro}
+\plato{Infusion}{Te verde}{2,50 \euro}
 
 % ------------------------------
 % NOTAS FINALES
 % ------------------------------
-
 \vspace{1cm}
 \noindent\textcolor{rojoChino}{\rule{\linewidth}{1pt}}\par
 \vspace{0.3cm}
@@ -160,3 +138,4 @@
 \noindent{\footnotesize \textbf{¡Gracias por su visita!}}
 
 \end{document}
+
