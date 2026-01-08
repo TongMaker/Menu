@@ -1,0 +1,25 @@
+name: Build LaTeX PDF
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        uses: xu-cheng/latex-action@v3
+        with:
+          latexmk_use_xelatex: true
+          root_file: menu.tex
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: menu-pdf
+          path: menu.pdf
